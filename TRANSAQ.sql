@@ -1,10 +1,30 @@
+/*
+Follow the instructions to execute this query. 
+Create the schema
+Use the schema
+Create table by table
+Insert data per table
+*/
+
+-- -----------------------------------------------------
+-- 1rst execute
+-- -----------------------------------------------------
+
 CREATE SCHEMA `bd` ;
+
+-- -----------------------------------------------------
+-- 2nd execute
+-- -----------------------------------------------------
 USE `bd` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Cliente`
+-- Then follow executing table by table
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bron`.`cliente` (
+
+-- -----------------------------------------------------
+-- Table `bd`.`Cliente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bd`.`cliente` (
   `DNI_CLIENTE` VARCHAR(8) NOT NULL,
   `NOMBRE` VARCHAR(45) NULL,
   `APELLIDO` VARCHAR(45) NULL,
@@ -17,25 +37,11 @@ CREATE TABLE IF NOT EXISTS `bron`.`cliente` (
   PRIMARY KEY (`DNI_CLIENTE`))
 ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `mydb`.`Productos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bron`.`Productos` (
-  `CODIGOPRODUCTO` VARCHAR(45) NOT NULL,
-  `MODELO` VARCHAR(45) NULL,
-  `TALLA` INT NULL,
-  `COLOR` VARCHAR(45) NULL,
-  `GENERO` VARCHAR(45) NULL,
-  `CODIGO_CATEGORIA` VARCHAR(8) NULL,
-  `PRECIO` DOUBLE NULL,
-  `CANTIDAD` INT NULL,
-  PRIMARY KEY (`CODIGOPRODUCTO`))
-ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuario`
+-- Table `bd`.`Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bron`.`Usuario` (
+CREATE TABLE IF NOT EXISTS `bd`.`Usuario` (
   `DNI_USUARIO` VARCHAR(8) NOT NULL,
   `NOMBRES` VARCHAR(45) NULL,
   `APELLIDOS` VARCHAR(45) NULL,
@@ -46,16 +52,33 @@ CREATE TABLE IF NOT EXISTS `bron`.`Usuario` (
   PRIMARY KEY (`DNI_USUARIO`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `bron`.`Categoria` (
+-- -----------------------------------------------------
+-- Table `bd`.`Categoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bd`.`Categoria` (
   `CODIGO_CATEGORIA` VARCHAR(8) NOT NULL,
   `CATEGORIA` VARCHAR(45) NULL,
   PRIMARY KEY (`CODIGO_CATEGORIA`))
 ENGINE = InnoDB;
 
-ALTER TABLE Productos ADD CONSTRAINT FK_CODIGO_CATEGORIA FOREIGN KEY (CODIGO_CATEGORIA) REFERENCES Categoria(CODIGO_CATEGORIA);
+-- -----------------------------------------------------
+-- Table `bd`.`Productos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bd`.`Productos` (
+  `CODIGOPRODUCTO` VARCHAR(45) NOT NULL,
+  `MODELO` VARCHAR(45) NULL,
+  `TALLA` INT NULL,
+  `COLOR` VARCHAR(45) NULL,
+  `GENERO` VARCHAR(45) NULL,
+  `CODIGO_CATEGORIA` VARCHAR(8) NULL,
+  `PRECIO` DOUBLE NULL,
+  `CANTIDAD` INT NULL,
+  PRIMARY KEY (`CODIGOPRODUCTO`),
+  FOREIGN KEY (CODIGO_CATEGORIA) REFERENCES Categoria(CODIGO_CATEGORIA))
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- DATA
+-- DATA 1
 -- -----------------------------------------------------
 insert into Cliente (DNI_CLIENTE, NOMBRE, APELLIDO, TELEFONO, PROVINCIA, DISTRITO, DIRECCION, ID_CLIENTE, CONTRASENA) values (44995112, 'Tonnie', 'Rojahn', '796-413-6183', 'Espinheira', 'Aveiro', '4 Paget Court', '22-139-0113', 'cFGsor3DE2S');
 insert into Cliente (DNI_CLIENTE, NOMBRE, APELLIDO, TELEFONO, PROVINCIA, DISTRITO, DIRECCION, ID_CLIENTE, CONTRASENA) values (54602044, 'Talbert', 'Moreinu', '448-558-2268', 'Kasungu', null, '52753 3rd Terrace', '01-682-9021', 'lBctkC5IyL');
@@ -73,17 +96,28 @@ insert into Cliente (DNI_CLIENTE, NOMBRE, APELLIDO, TELEFONO, PROVINCIA, DISTRIT
 insert into Cliente (DNI_CLIENTE, NOMBRE, APELLIDO, TELEFONO, PROVINCIA, DISTRITO, DIRECCION, ID_CLIENTE, CONTRASENA) values (89240425, 'Liliane', 'Thacke', '125-484-4058', 'Covão da Carvalha', 'Leiria', '4666 Sunbrook Street', '85-547-9341', 'VG7Zq9EI');
 insert into Cliente (DNI_CLIENTE, NOMBRE, APELLIDO, TELEFONO, PROVINCIA, DISTRITO, DIRECCION, ID_CLIENTE, CONTRASENA) values (34443550, 'Martainn', 'Brokenbrow', '147-865-0234', 'Vila de Rei', 'Castelo Branco', '12 Rutledge Alley', '97-893-3800', 'AgfRYcX3M4');
 
+
+-- -----------------------------------------------------
+-- DATA 2
+-- -----------------------------------------------------
+
 insert into Categoria (CODIGO_CATEGORIA, CATEGORIA) values (73232778, 'Botines');
 insert into Categoria (CODIGO_CATEGORIA, CATEGORIA) values (40015727, 'Zapatos');
 insert into Categoria (CODIGO_CATEGORIA, CATEGORIA) values (67507082, 'Zapatillas');
 
+
+-- -----------------------------------------------------
+-- DATA 3
+-- -----------------------------------------------------
 insert into Usuario (DNI_USUARIO, NOMBRES, APELLIDOS, EMAIL, PRIVILEGIO, ID_USUARIO, CONTRASENA) values (40838744, 'Gilemette', 'Caherny', 'gcaherny0@blog.com', '0', '93-513-9458', 'KtrAqpy5VVg2');
 insert into Usuario (DNI_USUARIO, NOMBRES, APELLIDOS, EMAIL, PRIVILEGIO, ID_USUARIO, CONTRASENA) values (51429410, 'Correy', 'O''Mannion', 'comannion1@google.com.br', '1', '81-310-5266', 'XwMZObrFK');
 insert into Usuario (DNI_USUARIO, NOMBRES, APELLIDOS, EMAIL, PRIVILEGIO, ID_USUARIO, CONTRASENA) values (21906753, 'Horacio', 'Kirkbride', 'hkirkbride2@last.fm', '1', '38-461-0258', '5dOXm2');
 insert into Usuario (DNI_USUARIO, NOMBRES, APELLIDOS, EMAIL, PRIVILEGIO, ID_USUARIO, CONTRASENA) values (54309330, 'Susanne', 'Yepiskov', 'syepiskov3@nifty.com', '1', '48-547-8415', 'jLk3JiK4h');
 insert into Usuario (DNI_USUARIO, NOMBRES, APELLIDOS, EMAIL, PRIVILEGIO, ID_USUARIO, CONTRASENA) values (51571629, 'Steffane', 'Feehely', 'sfeehely4@hhs.gov', '0', '01-945-6520', 'jCmHmPXlb');
 
-
+-- -----------------------------------------------------
+-- DATA 4
+-- -----------------------------------------------------
 insert into Productos (CODIGOPRODUCTO, MODELO, TALLA, COLOR, GENERO, CODIGO_CATEGORIA, PRECIO, CANTIDAD) values (74801988, 'primis in faucibus', 46, 'kvalance1@jalbum.net', 'Male', 73232778, 0, 55);
 insert into Productos (CODIGOPRODUCTO, MODELO, TALLA, COLOR, GENERO, CODIGO_CATEGORIA, PRECIO, CANTIDAD) values (7266540, 'non mauris morbi', 98, 'gcomber2@msn.com', 'Genderfluid', 73232778, 0, 22);
 insert into Productos (CODIGOPRODUCTO, MODELO, TALLA, COLOR, GENERO, CODIGO_CATEGORIA, PRECIO, CANTIDAD) values (47832017, 'quis odio consequat', 2, 'skearney3@infoseek.co.jp', 'Male', 40015727, 0, 23);
