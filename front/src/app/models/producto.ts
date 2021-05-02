@@ -6,7 +6,7 @@ export class Producto {
 	talla: number = null;
     color: string = null;
 	genero: string = null;
-    agente: Categoria = new Categoria();
+    categoria: Categoria = new Categoria();
     precio: number = null;
     cantidad: number = null;
 }

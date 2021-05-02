@@ -12,6 +12,7 @@ export class ProductoService {
   enviroment : CoreEnvironment; 
   urlbase = environment.url;
   Url=this.urlbase + "/producto";
+  producto:Producto = new Producto();
 
   constructor(private http:HttpClient) { }
 

@@ -21,6 +21,12 @@ import { UsuarioService } from './services/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AddClienteComponent } from './modules/cliente/add-cliente/add-cliente.component';
+import { ListarClienteComponent } from './modules/cliente/listar-cliente/listar-cliente.component';
+import { EditClienteComponent } from './modules/cliente/edit-cliente/edit-cliente.component';
+import { AddUsuarioComponent } from './modules/usuario/add-usuario/add-usuario.component';
+import { ListarUsuarioComponent } from './modules/usuario/listar-usuario/listar-usuario.component';
+import { EditUsuarioComponent } from './modules/usuario/edit-usuario/edit-usuario.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,12 @@ import { CommonModule } from '@angular/common';
     EditProductoComponent,
     AddProductoComponent,
     ListarProductoComponent,
+    AddClienteComponent,
+    ListarClienteComponent,
+    EditClienteComponent,
+    AddUsuarioComponent,
+    ListarUsuarioComponent,
+    EditUsuarioComponent,
   ],
   imports: [
     CommonModule,

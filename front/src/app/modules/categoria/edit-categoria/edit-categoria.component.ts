@@ -20,7 +20,7 @@ export class EditCategoriaComponent implements OnInit {
     private _snackBar: MatSnackBar,public router:Router, public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.limpiar();
+    this.categoria = new Categoria();
     this.categoria = this.service.categoria;
     console.log(this.categoria)
   }
@@ -35,6 +35,7 @@ export class EditCategoriaComponent implements OnInit {
 
   limpiar() {
     this.categoria = new Categoria();
+    this.service.categoria = new Categoria();
   }
 
   validar() {

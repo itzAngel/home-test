@@ -6,65 +6,47 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <input type="text" placeholder="Editar código" class="form-control" disabled>
+                    <input type="text" placeholder="Ingrese código" class="form-control" name="codigoProducto" #codigoProducto="ngModel" [(ngModel)]="producto.codigoProducto" disabled>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <input type="text" placeholder="Editar modelo" class="form-control">
-                </div>
-            </div>
-
-            <br>
-
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <input type="number" placeholder="Editar Talla" class="form-control" min="38" max="43">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <input type="text" placeholder="Editar Color" class="form-control">
+                    <input type="text" placeholder="Ingrese modelo" class="form-control" name="modelo" #modelo="ngModel" [(ngModel)]="producto.modelo">
                 </div>
             </div>
-
             <br>
-
             <div class="row">
-
                 <div class="col-md-6 mb-3">
-                    <select name="select" class="form-control">
-                        <option value="value1" selected>Editar Género</option>
-                        <option value="value2">Masculino</option>
-                        <option value="value3">Femenino</option>
-                      </select>
+                    <input type="number" placeholder="Elija Talla" class="form-control" min="38" max="43" name="talla" #talla="ngModel" [(ngModel)]="producto.talla">
                 </div>
-
                 <div class="col-md-6 mb-3">
-                    <select name="select" class="form-control">
-                        <option value="value1" selected >Seleccione Categoría</option>
-                        <option value="value2">Botines</option>
-                        <option value="value3">Casuales</option>
-                        <option value="value4">Sandalias</option>
+                    <input type="text" placeholder="Ingrese Color" class="form-control" name="color" #color="ngModel" [(ngModel)]="producto.color">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <select name="select" class="form-control" name="gene" #gene="ngModel" [(ngModel)]="producto.genero">
+                        <option *ngFor="let per1 of generos" [value]="per1.value">{{per1.viewValue}}</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <select name="select" class="form-control" name="category" #category="ngModel" [(ngModel)]="producto.categoria">
+                        <option *ngFor="let per2 of categorias" [value]="per2">{{per2.categoria}}</option>
                     </select>
                 </div>
             </div>
-
             <br>
-
             <div class="row">
                 <div class="col-md-6 mb-3">
-
-                    <input type="number" placeholder="Editar Precio" class="form-control">
-
-
+                    <input type="number" placeholder="Ingrese Precio" class="form-control" name="precio" #precio="ngModel" [(ngModel)]="producto.precio">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <input type="number" placeholder="Editar Cantidad" class="form-control">
+                    <input type="number" placeholder="Ingrese Cantidad" class="form-control" name="cantidad" #cantidad="ngModel" [(ngModel)]="producto.cantidad">
                 </div>
             </div>
-
             <br>
-
             <div class="row">
                 <div class="col-12 text-center">
-                    <button type="button" class="btn btn-danger">Editar Producto</button>
+                    <button type="button" class="btn btn-danger" (click)="Actualizar()">Guardar Producto</button>
                 </div>
             </div>
 
