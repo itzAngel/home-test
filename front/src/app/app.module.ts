@@ -14,6 +14,13 @@ import { EditCategoriaComponent } from './modules/categoria/edit-categoria/edit-
 import { EditProductoComponent } from './modules/producto/edit-producto/edit-producto.component';
 import { AddProductoComponent } from './modules/producto/add-producto/add-producto.component';
 import { ListarProductoComponent } from './modules/producto/listar-producto/listar-producto.component';
+import { CategoriaService } from './services/categoria.service';
+import { ProductoService } from './services/producto.service';
+import { ClienteService } from './services/cliente.service';
+import { UsuarioService } from './services/usuario.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,12 +36,21 @@ import { ListarProductoComponent } from './modules/producto/listar-producto/list
     ListarProductoComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    CategoriaService,
+    ProductoService,
+    ClienteService,
+    UsuarioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

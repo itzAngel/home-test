@@ -9,36 +9,16 @@
                     <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Opciones</th>
                 </tr>
             </thead>
-            <tbody>
-
+            <tbody *ngFor="let categoria of categorias">
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-
-                    <td><button type="button" class="btn btn-primary"><a href="../mi_dashboard/editarProductos.html" style="color: white;">&nbsp;Editar&nbsp;</a></button>&nbsp;<button type="button" class="btn btn-danger">Eliminar</button></td>
-
+                    <th scope="row">{{categoria.codigoCategoria}} </th>
+                    <td>{{categoria.categoria}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="Editar(categoria)">Editar</button> &nbsp;
+                        <button type="button" class="btn btn-danger" (click)="Eliminar(categoria)">Eliminar</button>
+                    </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-
-                    <td><button type="button" class="btn btn-primary"><a href="../mi_dashboard/editarProductos.html" style="color: white;">&nbsp;Editar&nbsp;</a></button>&nbsp;<button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-
-                    <td><button type="button" class="btn btn-primary"><a href="../mi_dashboard/editarProductos.html" style="color: white;">&nbsp;Editar&nbsp;</a></button>&nbsp;<button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-
             </tbody>
         </table>
     </div>
-
-    <div class="row">
-
-    </div>
-
-
 </div>

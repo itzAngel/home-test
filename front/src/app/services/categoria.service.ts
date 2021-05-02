@@ -3,7 +3,6 @@ import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Categoria } from '../models/categoria';
-import { Cliente } from '../models/cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +12,8 @@ export class CategoriaService {
   enviroment : CoreEnvironment; 
   urlbase = environment.url;
   Url=this.urlbase + "/categoria";
-
-  constructor(private http:HttpClient) { }
+  categoria:Categoria = new Categoria();
+  constructor(public http:HttpClient) { }
 
   getCategorias(){
     return this.http.get<Categoria[]>(this.Url);
